@@ -7,11 +7,8 @@ phases:
   pre_build:
     commands:
       - gem install license_finder
+      - license_finder permitted_licenses add "Apache 2.0"
+      - license_finder permitted_licenses add "MIT"
   build:
     commands:
-      - license_finder permitted_licenses add "Apache 2.0"
-      - license_finder permitted_licenses add MIT
-      - license_finder report --format html >> license-finder-report.html
-  post_build:
-    commands:
-      - aws s3 cp --recursive license-finder-report.html s3://license-finder-demo-tmngtak/license-finder-report.html
+      - license_finder
