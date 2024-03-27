@@ -14,4 +14,4 @@ phases:
       - license_finder report --format html >> license-finder-report.html
   post_build:
     commands:
-      - aws s3 cp license-finder-report.html s3://license-finder-demo-tmngtak/license-finder-report.html --recursive
+      - aws s3 cp --recursive license-finder-report.html s3://license-finder-demo-tmngtak/license-finder-report.html
